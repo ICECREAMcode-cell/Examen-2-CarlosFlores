@@ -1,0 +1,77 @@
+@page
+@model Cliente_Front_end.Pages.Tesis.IndexModel
+@{
+    ViewData["Title"] = "Tesis";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+        <h1 class="page-title">Tesis</h1>
+        <p class="page-subtitle">Registro y control de tesis por autor.</p>
+    </div>
+    <a class="btn btn-magenta" asp-page="Create">+ Nueva tesis</a>
+</div>
+
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-6">
+        <input name="termino" value="@Model.Termino" class="form-control"
+               placeholder="Buscar por título, estudiante, estado o autor..." />
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-magenta" type="submit">Buscar</button>
+        <a asp-page="Index" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+@if (!Model.Tesis.Any())
+{
+    <div class="alert alert-info">No se encontraron tesis.</div>
+}
+else
+{
+    <div class="card shadow-sm border-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-magenta">
+                    <tr>
+                        <th>Título</th>
+                        <th>Estudiante</th>
+                        <th>Autor</th>
+                        <th>Estado</th>
+                        <th>Imagen</th>
+                        <th>Subir imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tesis in Model.Tesis)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@tesis.Titulo</td>
+                            <td>@tesis.Estudiante</td>
+                            <td>@Model.NombreAutor(tesis.Id_Tutor)</td>
+                            <td><span class="badge badge-estado">@tesis.Estado</span></td>
+                            <td>
+                                @{
+                                    var rutaImagen = string.IsNullOrWhiteSpace(tesis.Image)
+                                        ? "/imagenes/default.svg"
+                                        : tesis.Image;
+                                }
+                                <img src="@($"{Model.ApiBaseUrl}{rutaImagen}")"
+                                     alt="Imagen de @tesis.Titulo" class="tesis-img" />
+                            </td>
+                            <td>
+                                <form method="post" asp-page-handler="SubirImagen"
+                                      enctype="multipart/form-data" class="d-flex gap-2">
+                                    <input type="hidden" name="IdTesis" value="@tesis.Id" />
+                                    <input type="file" name="Imagen" class="form-control form-control-sm"
+                                           accept="image/*" />
+                                    <button type="submit" class="btn btn-sm btn-outline-magenta">Subir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

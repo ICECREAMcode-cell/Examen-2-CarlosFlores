@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="hero-magenta p-5 rounded-4 mb-4">
+    <h1 class="display-6 fw-bold mb-2">Gestión de Tesis y Autores</h1>
+    <p class="lead mb-0">
+        Registra autores, asigna hasta 3 tesis por autor y administra la imagen de cada tesis.
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+                <h2 class="h4 text-magenta">Autores</h2>
+                <p class="text-muted">
+                    Consulta y registra autores. No se permiten nombres ni correos duplicados
+                    y cada uno puede dirigir máximo 3 tesis.
+                </p>
+                <a class="btn btn-magenta" asp-page="/Autor/Index">Ver autores</a>
+                <a class="btn btn-outline-magenta" asp-page="/Autor/Create">Nuevo autor</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body p-4">
+                <h2 class="h4 text-magenta">Tesis</h2>
+                <p class="text-muted">
+                    Registra tesis, búscalas por título, estudiante, estado o autor y sube
+                    su imagen (solo se guarda la ubicación del archivo).
+                </p>
+                <a class="btn btn-magenta" asp-page="/Tesis/Index">Ver tesis</a>
+                <a class="btn btn-outline-magenta" asp-page="/Tesis/Create">Nueva tesis</a>
+            </div>
+        </div>
+    </div>
+</div>

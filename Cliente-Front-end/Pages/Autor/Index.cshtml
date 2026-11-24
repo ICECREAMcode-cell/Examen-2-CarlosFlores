@@ -1,0 +1,58 @@
+@page
+@model Cliente_Front_end.Pages.Autor.IndexModel
+@{
+    ViewData["Title"] = "Autores";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+        <h1 class="page-title">Autores</h1>
+        <p class="page-subtitle">Cada autor puede dirigir hasta 3 tesis.</p>
+    </div>
+    <a class="btn btn-magenta" asp-page="Create">+ Nuevo autor</a>
+</div>
+
+@if (!Model.Autores.Any())
+{
+    <div class="alert alert-info">Aún no hay autores registrados.</div>
+}
+else
+{
+    <div class="card shadow-sm border-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-magenta">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Correo</th>
+                        <th class="text-center">Tesis</th>
+                        <th class="text-center">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var autor in Model.Autores)
+                    {
+                        var cantidad = Model.CantidadTesis(autor.Id);
+                        <tr>
+                            <td class="fw-semibold">@autor.Nombre</td>
+                            <td>@autor.Especialidad</td>
+                            <td>@autor.Correo</td>
+                            <td class="text-center">@cantidad / 3</td>
+                            <td class="text-center">
+                                @if (cantidad >= 3)
+                                {
+                                    <span class="badge badge-magenta">Lleno</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-disponible">Disponible</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Cliente-Front-end/Cliente-Front-end.csproj" />
+  <Project Path="Contrato/Contrato.csproj" />
+  <Project Path="Examen2_CarlosFlores/Examen2_CarlosFlores.csproj" />
+</Solution>

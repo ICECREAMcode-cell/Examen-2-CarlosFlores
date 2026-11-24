@@ -1,0 +1,49 @@
+@page
+@model Cliente_Front_end.Pages.Autor.CreateModel
+@{
+    ViewData["Title"] = "Nuevo autor";
+}
+
+<div class="page-header">
+    <h1 class="page-title">Nuevo autor</h1>
+    <p class="page-subtitle">No se permiten nombres ni correos duplicados.</p>
+</div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Autor.Nombre" class="form-label">Nombre</label>
+                        <input asp-for="Autor.Nombre" class="form-control" placeholder="Ej. Ana Martínez" />
+                        <span asp-validation-for="Autor.Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Autor.Especialidad" class="form-label">Especialidad</label>
+                        <input asp-for="Autor.Especialidad" class="form-control" placeholder="Ej. Ingeniería de Software" />
+                        <span asp-validation-for="Autor.Especialidad" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Autor.Correo" class="form-label">Correo</label>
+                        <input asp-for="Autor.Correo" type="email" class="form-control" placeholder="Ej. ana@correo.com" />
+                        <span asp-validation-for="Autor.Correo" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-magenta">Guardar autor</button>
+                        <a asp-page="Index" class="btn btn-outline-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

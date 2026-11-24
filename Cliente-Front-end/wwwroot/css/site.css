@@ -1,0 +1,162 @@
+:root {
+  --magenta: #c2185b;
+  --magenta-oscuro: #880e4f;
+  --magenta-claro: #f06292;
+  --magenta-suave: #fce4ec;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin-bottom: 85px;
+  background-color: #fffafc;
+  color: #3b2b32;
+}
+
+a {
+  color: var(--magenta);
+}
+
+a:hover {
+  color: var(--magenta-oscuro);
+}
+
+/* Barra de navegación */
+.navbar-magenta {
+  background: linear-gradient(135deg, var(--magenta-oscuro), var(--magenta));
+}
+
+.navbar-magenta .navbar-brand,
+.navbar-magenta .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-magenta .nav-link:hover,
+.navbar-magenta .nav-link:focus {
+  color: var(--magenta-suave) !important;
+}
+
+.navbar-magenta .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Encabezados de página */
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-title {
+  color: var(--magenta-oscuro);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  color: #8a6b77;
+  margin-bottom: 0;
+}
+
+.text-magenta {
+  color: var(--magenta) !important;
+}
+
+.hero-magenta {
+  background: linear-gradient(135deg, var(--magenta-oscuro), var(--magenta));
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(136, 14, 79, 0.25);
+}
+
+/* Botones */
+.btn-magenta {
+  background-color: var(--magenta);
+  border-color: var(--magenta);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-magenta:hover,
+.btn-magenta:focus {
+  background-color: var(--magenta-oscuro);
+  border-color: var(--magenta-oscuro);
+  color: #ffffff;
+}
+
+.btn-outline-magenta {
+  color: var(--magenta);
+  border-color: var(--magenta);
+  font-weight: 600;
+}
+
+.btn-outline-magenta:hover,
+.btn-outline-magenta:focus {
+  background-color: var(--magenta);
+  border-color: var(--magenta);
+  color: #ffffff;
+}
+
+/* Tablas */
+.table-magenta th {
+  background-color: var(--magenta-suave);
+  color: var(--magenta-oscuro);
+  border-bottom: 2px solid var(--magenta-claro) !important;
+  font-weight: 700;
+}
+
+/* Tarjetas y badges */
+.card {
+  border-radius: 0.85rem;
+}
+
+.badge-magenta {
+  background-color: var(--magenta);
+  color: #ffffff;
+}
+
+.badge-disponible {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge-estado {
+  background-color: var(--magenta-suave);
+  color: var(--magenta-oscuro);
+}
+
+/* Imagen de tesis */
+.tesis-img {
+  width: 72px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  border: 1px solid var(--magenta-claro);
+}
+
+/* Formularios */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--magenta-claro);
+  box-shadow: 0 0 0 0.2rem rgba(194, 24, 91, 0.15);
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus {
+  box-shadow: 0 0 0 0.1rem #ffffff, 0 0 0 0.25rem var(--magenta-claro);
+}
+
+/* Pie de página */
+.footer-magenta {
+  background-color: var(--magenta-suave);
+  color: #8a6b77;
+}
